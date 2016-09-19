@@ -1,7 +1,7 @@
 package queue
 
 type Queue interface {
-	Push(key interface{}, item interface{})
+	Push(key interface{})
 	Pop() interface{}
 	Contains(key interface{}) bool
 	Len() int
@@ -9,6 +9,5 @@ type Queue interface {
 }
 
 func New(size int) Queue {
-	// change constructor
 	return nil
 }
