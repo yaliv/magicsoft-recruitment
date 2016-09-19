@@ -2,7 +2,7 @@ package queue
 
 type Queue interface {
 	Push(key interface{}, item interface{})
-	Pop(key interface{}) (interface{}, bool)
+	Pop() interface{}
 	Contains(key interface{}) bool
 	Len() int
 	Keys() []interface{}
