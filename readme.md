@@ -7,6 +7,6 @@
 * Solusi dari setiap soal harus bisa di *compile* dan *run* untuk validasi, dipersilahkan menggunakan direktori terpisah atau pendekatan lain.
 * *Commit* dan *push* hasil ke branch dengan nama masing-masing, misal "bayu".
 
-[Problem 1: Sorting ](https://gitlab.com/galih.rivanto/recruitment2016/tree/master/sorting)
+[Problem 1: Sorting ](https://github.com/galihrivanto/recruitment/tree/master/sorting)
 
-[Problem 2: Queue](https://gitlab.com/galih.rivanto/recruitment2016/tree/master/queue)
+[Problem 2: Queue](https://github.com/galihrivanto/recruitment/tree/master/queue)
