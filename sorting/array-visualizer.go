@@ -1,20 +1,11 @@
 // Subprogram 1: array visualizer.
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
 // Create a vertical barcharts visualization.
-// 1st param: array to visualize.
-// 2nd param: delay to display new barcharts in millisecond.
-func visualize(A []int, delay int) {
-	// Delay.
-	time.Sleep(time.Duration(delay) * time.Millisecond)
-
-	// Clear screen.
-	CallClear()
+func visualize(A []int) {
+	fmt.Println()
 
 	// Get the highest number.
 	var max int
