@@ -1,7 +1,7 @@
 // Subprogram 3: descending insertion sort.
 package main
 
-// Perform the ascending insertion sort.
+// Perform the descending insertion sort.
 func descSort(A []int) {
 	// Visualize original array.
 	visualize(A)
