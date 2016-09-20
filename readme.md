@@ -10,3 +10,5 @@
 [Problem 1: Sorting ](https://github.com/galihrivanto/recruitment/tree/master/sorting)
 
 [Problem 2: Queue](https://github.com/galihrivanto/recruitment/tree/master/queue)
+
+[Problem 3: Folder Compare](https://github.com/galihrivanto/recruitment/tree/master/compare)
