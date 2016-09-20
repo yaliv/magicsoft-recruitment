@@ -33,7 +33,7 @@ func TestEvictPolicy(t *testing.T) {
 		}
 
 		if i < 5 && q.Len() != (i+1) {
-			t.Errorf("expected length %d but actual: %d", i+1, q.Len())
+			t.Errorf("expected length: %d but actual: %d", i+1, q.Len())
 		} else if i >= 5 && q.Len() != 5 {
 			t.Errorf("expexted length: %d but actual: %d", size, q.Len())
 		}
@@ -57,8 +57,7 @@ func TestPop(t *testing.T) {
 		// validate
 		expect := testValues[len(testValues)-(q.Len()+1)]
 		if v != expect {
-			t.Error("expected %v but recevied %v", expect, v)
+			t.Errorf("expected %v but received %v", expect, v)
 		}
 	}
-
 }
