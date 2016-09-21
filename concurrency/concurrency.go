@@ -17,16 +17,18 @@ const (
 )
 
 type Wilayah struct {
-	Data struct {
-		Kode, Nama, KodeMaster string
-	}
+	Data []struct {
+		Kode       string `json:"kode_wilayah"`
+		Nama       string `json:"nama"`
+		KodeMaster string `json:"mst_kode_wilayah"`
+	} `json:"data"`
 }
 
 var wilayah2 []Wilayah
 
 func main() {
 	// Ambil data provinsi.
-	provinsi := addWilayah(getJSON(URLroot + PropPath))
+	provinsi := getWilayah(getJSON(URLroot + PropPath))
 	fmt.Println(provinsi)
 }
 
@@ -35,21 +37,24 @@ func getJSON(url string) string {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	jsonString, err := ioutil.ReadAll(res.Body)
 	res.Body.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Printf("%s\n", jsonString)
 	return fmt.Sprintf("%s", jsonString)
 }
 
-func addWilayah(jsonString string) []Wilayah {
-	var umsWilayah2 []Wilayah
+func getWilayah(jsonString string) Wilayah {
+	var umsWilayah Wilayah
 
-	err := json.Unmarshal([]byte(jsonString), &umsWilayah2)
+	err := json.Unmarshal([]byte(jsonString), &umsWilayah)
 	if err != nil {
 		fmt.Println("Error unmarshal:", err)
 	}
 
-	return umsWilayah2
+	return umsWilayah
 }
