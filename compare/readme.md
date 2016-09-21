@@ -1,5 +1,5 @@
 #### Problem 3
-##### Changed Files
+##### Compare Folder
 
 TASK #1. Implementasikan sebuah *program* yang membandingkan isi dari dua direktori melalui *parameter*. 
 1. Jika file ada di source dan target, abaikan
