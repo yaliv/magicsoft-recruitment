@@ -11,9 +11,6 @@ import (
 	"strings"
 )
 
-type Filename string
-type Parent string
-
 var (
 	sep            string
 	srcDir, trgDir string
@@ -91,7 +88,35 @@ func main() {
 
 		// If the path exists both in the source dir and the target dir.
 		if srcOK && trgOK {
-			// Compare file content.
+			// Get their full path.
+			srcFullPath := srcDir + path
+			trgFullPath := trgDir + path
+			//fmt.Printf("Source: %v\nTarget: %v\n_\n", srcFullPath, trgFullPath)
+
+			// Hash the source path.
+			srcMd5, err := hash_file_md5(srcFullPath)
+			if err != nil {
+				if err.Error() != "Cannot hash a dir." {
+					log.Printf("Error when hashing %v: %v\n", srcFullPath, err)
+				}
+				continue
+			}
+
+			// Hash the target path.
+			trgMd5, err := hash_file_md5(trgFullPath)
+			if err != nil {
+				if err.Error() != "Cannot hash a dir." {
+					log.Printf("Error when hashing %v: %v\n", trgFullPath, err)
+				}
+				continue
+			}
+
+			//fmt.Printf("Source MD5: %v\nTarget MD5: %v\n_\n", srcMd5, trgMd5)
+
+			// Compare both hashes.
+			if srcMd5 != trgMd5 {
+				fmt.Println(path, "MODIFIED")
+			}
 		}
 	}
 }
@@ -111,23 +136,6 @@ func appendPath(path string) {
 		}
 	}
 	Paths = append(Paths, path)
-}
-
-// Seperate path into parent path and filename.
-func seperatePath(path string) (Parent, Filename) {
-	// Get the index of the last separator.
-	sepIdx := strings.LastIndex(path, sep)
-
-	// Get the parent path and the filename.
-	var parent Parent
-	if sepIdx == 0 {
-		parent = Parent("root")
-	} else {
-		parent = Parent(path[:sepIdx])
-	}
-	filename := Filename(path[sepIdx+1:])
-
-	return parent, filename
 }
 
 // It is called in every source path found.
