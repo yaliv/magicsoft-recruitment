@@ -13,4 +13,4 @@
 
 [Problem 3: Folder Compare](https://github.com/galihrivanto/recruitment/tree/master/compare)
 
-[Problem 4: Concurrency](https://github.com/galihrivanto/recruitment/tree/master/Concurrency)
+[Problem 4: Concurrency](https://github.com/galihrivanto/recruitment/tree/master/concurrency)
